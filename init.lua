@@ -32,12 +32,6 @@ return {
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         -- "sumneko_lua",
@@ -50,9 +44,29 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "dartls",
+    },
+    setup_handlers = {
+      -- add custom handler
+      dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+    },
+    config = {
+      dartls = {
+        -- any changes you want to make to the LSP setup, for example
+        color = {
+          enabled = true,
+        },
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+        },
+      },
     },
   },
 
+  plugins = {
+    "akinsho/flutter-tools.nvim", -- add lsp plugin
+  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
