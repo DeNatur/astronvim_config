@@ -45,10 +45,12 @@ return {
     servers = {
       -- "pyright"
       "dartls",
+      "gdscript",
     },
     setup_handlers = {
       -- add custom handler
       dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+      gdscript = function(_, opts) require("lspconfig").gdscript.setup {} end,
     },
     config = {
       dartls = {
@@ -59,6 +61,11 @@ return {
         settings = {
           showTodos = true,
           completeFunctionCalls = true,
+        },
+      },
+      gdscript = {
+        color = {
+          enabled = true,
         },
       },
     },

@@ -23,6 +23,8 @@ return {
   },
   t = {
     -- setting a mapping to false will disable it
+    ["<C-space>"] = { "<C-\\><C-n><C-w>k" },
+    ["<C-t>"] = { "<C-\\><C-n>" },
     -- ["<esc>"] = false,
   },
 }
