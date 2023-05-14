@@ -49,7 +49,10 @@ return {
     },
     setup_handlers = {
       -- add custom handler
-      dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+      dartls = function(_, opts)
+        require("flutter-tools").setup { lsp = opts }
+        require("telescope").load_extension("flutter")
+      end,
       gdscript = function(_, opts) require("lspconfig").gdscript.setup {} end,
     },
     config = {

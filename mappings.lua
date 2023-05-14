@@ -18,8 +18,15 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["|"] = false,
+    ["\\"] = false,
+    ["<leader>-"] = { "<cmd>split<cr>", desc = "Horizontal Split" },
+    ["<leader>\\"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" },
+    ["<leader>fl"] = {
+      function()
+        require('telescope').extensions.flutter.commands()
+      end,
+      desc = "Show flutter tools using telescope" }
   },
   t = {
     -- setting a mapping to false will disable it
