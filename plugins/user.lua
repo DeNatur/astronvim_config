@@ -9,5 +9,6 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  --
   "akinsho/flutter-tools.nvim", -- add lsp plugin
 }
